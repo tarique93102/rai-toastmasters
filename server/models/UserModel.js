@@ -1,12 +1,14 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema();
 var SpeechModel = require('./SpeechModel');
+var RoleModel = require('./RoleModel');
 
 var UserSchema = new Schema({
     FullName: {
         type: String,
         required: true
     },
+    Accomplishments: [String],
     Club: {
         type: String,
         required: true
@@ -17,7 +19,7 @@ var UserSchema = new Schema({
     ExecutiveRole: {
         type: String
     },
-    RolesTaken: [],
+    RolesTaken: [RoleModel],
     Speeches: [SpeechModel],
     MemberSince: {
         type: Date,
